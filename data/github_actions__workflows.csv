@@ -1,3 +1,2 @@
 workflow_name,workflow_schedule
-dbt_run_streamline_chainhead,"<insert-cron-schedule>"
-dbt_run_scheduled_main,"<insert-cron-schedule>"
+dbt_run_streamline_history,"21 */2 * * *"

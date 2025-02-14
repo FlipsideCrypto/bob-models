@@ -1,4 +1,4 @@
-<evm_chain>:
+bob:
   target: prod
   outputs:
     dev:
