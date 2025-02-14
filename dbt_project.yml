@@ -74,6 +74,8 @@ models:
         +enabled: true # enable subpackages, as needed
       utils:
         +enabled: true
+      github_actions:
+        +enabled: true
       prices:
         +enabled: true
 
