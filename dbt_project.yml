@@ -132,16 +132,7 @@ vars:
 
 # Please visit https://github.com/FlipsideCrypto/fsc-evm/wiki for more information on required and optional variables
 
-  BLOCKS_TRANSACTIONS_REALTIME_NEW_BUILD: True
-  RECEIPTS_REALTIME_NEW_BUILD: True
-  TRACES_REALTIME_NEW_BUILD: True
-
-  BLOCKS_TRANSACTIONS_HISTORY_NEW_BUILD: True
-  RECEIPTS_HISTORY_NEW_BUILD: True
-  TRACES_HISTORY_NEW_BUILD: True
-
   TRACES_FULL_RELOAD_START_BLOCK: 14000000
-  BRONZE_CONTRACT_ABIS_FULL_REFRESH: True
 
   ### PRICES ###
   ## REQUIRED
