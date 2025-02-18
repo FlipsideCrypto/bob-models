@@ -78,6 +78,12 @@ models:
         +enabled: true
       prices:
         +enabled: true
+    decoder_package:
+      +enabled: false
+      abis:
+        +enabled: true
+      decoded_logs:
+        +enabled: false
 
 vars:
   "dbt_date:time_zone": GMT
@@ -122,6 +128,7 @@ vars:
   GLOBAL_PROD_DB_NAME: "bob"
   GLOBAL_NODE_SECRET_PATH: "Vault/prod/bob/drpc/mainnet"
   GLOBAL_BLOCKS_PER_HOUR: 1800
+  GLOBAL_WRAPPED_ASSET_ADDRESS: '0x4200000000000000000000000000000000000006'
 
 # Please visit https://github.com/FlipsideCrypto/fsc-evm/wiki for more information on required and optional variables
 
@@ -145,3 +152,6 @@ vars:
   TRACES_HISTORY_SQL_LIMIT: 500000
 
 #### FSC_EVM END ####
+
+  BLOCK_EXPLORER_NAME: "GoBOB"
+  BLOCK_EXPLORER_ABI_URL: "https://explorer-bob-mainnet-0.t.conduit.xyz/api/v2/smart-contracts/"
