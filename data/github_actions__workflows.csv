@@ -2,3 +2,4 @@ workflow_name,workflow_schedule
 dbt_run_streamline_chainhead,"21,51 * * * *"
 dbt_run_scheduled_main,"9 * * * *"
 dbt_run_dev_refresh,"41 4 * * 1"
+dbt_run_streamline_confirm_blocks,"1 * * * *"
