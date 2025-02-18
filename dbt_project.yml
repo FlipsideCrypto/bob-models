@@ -78,6 +78,12 @@ models:
         +enabled: true
       prices:
         +enabled: true
+    decoder_package:
+      +enabled: false
+      abis:
+        +enabled: true
+      decoded_logs:
+        +enabled: false
 
 vars:
   "dbt_date:time_zone": GMT
@@ -122,26 +128,18 @@ vars:
   GLOBAL_PROD_DB_NAME: "bob"
   GLOBAL_NODE_SECRET_PATH: "Vault/prod/bob/drpc/mainnet"
   GLOBAL_BLOCKS_PER_HOUR: 1800
+  GLOBAL_WRAPPED_ASSET_ADDRESS: '0x4200000000000000000000000000000000000006'
 
 # Please visit https://github.com/FlipsideCrypto/fsc-evm/wiki for more information on required and optional variables
 
-  BLOCKS_TRANSACTIONS_REALTIME_NEW_BUILD: True
-  RECEIPTS_REALTIME_NEW_BUILD: True
-  TRACES_REALTIME_NEW_BUILD: True
+  TRACES_FULL_RELOAD_START_BLOCK: 14000000
 
-  BLOCKS_TRANSACTIONS_HISTORY_NEW_BUILD: True
-  BLOCKS_TRANSACTIONS_HISTORY_PRODUCER_BATCH_SIZE: 10000
-  BLOCKS_TRANSACTIONS_HISTORY_WORKER_BATCH_SIZE: 2000
-  BLOCKS_TRANSACTIONS_HISTORY_SQL_LIMIT: 500000
-
-  RECEIPTS_HISTORY_NEW_BUILD: True
-  RECEIPTS_HISTORY_PRODUCER_BATCH_SIZE: 10000
-  RECEIPTS_HISTORY_WORKER_BATCH_SIZE: 2000
-  RECEIPTS_HISTORY_SQL_LIMIT: 500000
-
-  TRACES_HISTORY_NEW_BUILD: True
-  TRACES_HISTORY_PRODUCER_BATCH_SIZE: 4000
-  TRACES_HISTORY_WORKER_BATCH_SIZE: 2000
-  TRACES_HISTORY_SQL_LIMIT: 500000
+  ### PRICES ###
+  ## REQUIRED
+  PRICES_NATIVE_SYMBOLS: "ETH"
+  PRICES_PROVIDER_PLATFORMS: ["bob-network"]
 
 #### FSC_EVM END ####
+
+  BLOCK_EXPLORER_NAME: "GoBOB"
+  BLOCK_EXPLORER_ABI_URL: "https://explorer-bob-mainnet-0.t.conduit.xyz/api/v2/smart-contracts/"
