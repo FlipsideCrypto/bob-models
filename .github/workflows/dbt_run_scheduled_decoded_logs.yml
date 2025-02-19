@@ -1,11 +1,11 @@
-name: dbt_run_streamline_decoder_history
-run-name: dbt_run_streamline_decoder_history
+name: dbt_run_scheduled_decoded_logs
+run-name: dbt_run_scheduled_decoded_logs
 
 on:
   workflow_dispatch:
     branches:
       - "main"
-    
+
 env:
   DBT_PROFILES_DIR: ./
 
@@ -24,7 +24,7 @@ concurrency:
 jobs:
   run_dbt_jobs:
     runs-on: ubuntu-latest
-    environment: 
+    environment:
       name: workflow_prod
 
     steps:
@@ -39,6 +39,7 @@ jobs:
         run: |
           pip install -r requirements.txt
           dbt deps
-      - name: Run DBT Jobs
+
+      - name: Update the silver and gold tables with the latest decoded logs
         run: |
-          dbt run --threads 8 --vars '{"STREAMLINE_INVOKE_STREAMS":True,"WAIT":120}' -m "fsc_evm,tag:streamline_decoded_logs_complete" "fsc_evm,tag:streamline_decoded_logs_history"
+          dbt run -m "fsc_evm,tag:bronze_decoded_logs" "fsc_evm,tag:silver_decoded_logs" "fsc_evm,tag:gold_decoded_logs"
