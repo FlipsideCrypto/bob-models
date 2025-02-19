@@ -15,9 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: ${{ inputs.environment }}  
+    outputs:  
+      warehouse: ${{ steps.set_outputs.outputs.warehouse }}
     steps:
       - name: Set warehouse output
-        id: set-outputs
+        id: set_outputs
         run: |
           echo "warehouse=${{ vars.WAREHOUSE }}" >> $GITHUB_OUTPUT  
 
