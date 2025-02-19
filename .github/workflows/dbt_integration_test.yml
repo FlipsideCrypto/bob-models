@@ -10,16 +10,16 @@ on:
 
 concurrency: ${{ github.workflow }}
 
-env:
-  WAREHOUSE: "${{ vars.WAREHOUSE }}"
-
 jobs:
   prepare_vars:
     runs-on: ubuntu-latest
     environment: 
       name: ${{ inputs.environment }}  
-    outputs:
-      warehouse: ${{ vars.WAREHOUSE }}  
+    steps:
+      - name: Set warehouse output
+        id: set-outputs
+        run: |
+          echo "warehouse=${{ vars.WAREHOUSE }}" >> $GITHUB_OUTPUT  
 
   called_workflow_template:
     needs: prepare_vars
