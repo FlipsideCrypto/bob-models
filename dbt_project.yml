@@ -76,6 +76,8 @@ models:
         +enabled: true
       github_actions:
         +enabled: true
+      labels:
+        +enabled: true
       prices:
         +enabled: true
     decoder_package:
