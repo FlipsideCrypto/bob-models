@@ -13,15 +13,22 @@ concurrency: ${{ github.workflow }}
 jobs:
   prepare_vars:
     runs-on: ubuntu-latest
-    environment: 
-      name: ${{ inputs.environment }}  
-    outputs:  
+    environment:
+      name: ${{ inputs.environment }}
+    outputs:
       warehouse: ${{ steps.set_outputs.outputs.warehouse }}
     steps:
       - name: Set warehouse output
         id: set_outputs
         run: |
-          echo "warehouse=${{ vars.WAREHOUSE }}" >> $GITHUB_OUTPUT  
+          echo "warehouse=${{ vars.WAREHOUSE }}" >> $GITHUB_OUTPUT
+
+  notify-failure:
+    needs: [prepare_vars]
+    if: failure()
+    uses: FlipsideCrypto/fsc-evm/.github/workflows/slack_notify.yml@main
+    secrets:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
   called_workflow_template:
     needs: prepare_vars
@@ -30,5 +37,12 @@ jobs:
       command: >
         dbt test --selector 'integration_tests'
       environment: ${{ inputs.environment }}
-      warehouse: ${{ needs.prepare_vars.outputs.warehouse }}  
+      warehouse: ${{ needs.prepare_vars.outputs.warehouse }}
     secrets: inherit
+
+  notify-failure2:
+    needs: [called_workflow_template]
+    if: failure()
+    uses: FlipsideCrypto/fsc-evm/.github/workflows/slack_notify.yml@main
+    secrets:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
