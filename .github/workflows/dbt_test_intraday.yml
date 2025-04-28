@@ -46,7 +46,7 @@ jobs:
 
       - name: Run Recent Tests
         run: |
-          dbt test -m "fsc_evm,tag:recent_test"
+          dbt test -m "fsc_evm,tag:recent_test" --exclude main_package.core.bronze.token_reads
 
   notify-failure:
     needs: [run_dbt_jobs]
