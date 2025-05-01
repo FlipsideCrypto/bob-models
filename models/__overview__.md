@@ -20,6 +20,8 @@ There is more information on how to use dbt docs in the last section of this doc
 
 **Dimension Tables:**
 - [dim_labels](https://flipsidecrypto.github.io/bob-models/#!/model/model.fsc_evm.core__dim_labels)
+- [dim_contracts](https://flipsidecrypto.github.io/bob-models/#!/model/model.fsc_evm.core__dim_contracts)
+- [dim_contract_abis](https://flipsidecrypto.github.io/bob-models/#!/model/model.fsc_evm.core__dim_contract_abis)
 
 **Fact Tables:**
 - [fact_blocks](https://flipsidecrypto.github.io/bob-models/#!/model/model.fsc_evm.core__fact_blocks)
@@ -27,11 +29,19 @@ There is more information on how to use dbt docs in the last section of this doc
 - [fact_transactions](https://flipsidecrypto.github.io/bob-models/#!/model/model.fsc_evm.core__fact_transactions)
 - [fact_traces](https://flipsidecrypto.github.io/bob-models/#!/model/model.fsc_evm.core__fact_traces)
 
+**Convenience Tables:**
+- [ez_decoded_event_logs](https://flipsidecrypto.github.io/bob-models/#!/model/model.fsc_evm.core__ez_decoded_event_logs)
+- [ez_native_transfers](https://flipsidecrypto.github.io/bob-models/#!/model/model.fsc_evm.core__ez_native_transfers)
+- [ez_token_transfers](https://flipsidecrypto.github.io/bob-models/#!/model/model.fsc_evm.core__ez_token_transfers)
+  
 ### Price Tables (bob.price)
 - [dim_asset_metadata](https://flipsidecrypto.github.io/bob-models/#!/model/model.fsc_evm.price__dim_asset_metadata)
 - [fact_prices_ohlc_hourly](https://flipsidecrypto.github.io/bob-models/#!/model/model.fsc_evm.price__fact_prices_ohlc_hourly)
 - [ez_asset_metadata](https://flipsidecrypto.github.io/bob-models/#!/model/model.fsc_evm.price__ez_asset_metadata)
 - [ez_prices_hourly](https://flipsidecrypto.github.io/bob-models/#!/model/model.fsc_evm.price__ez_prices_hourly)
+
+### NFT Tables (bob.nft)
+- [ez_nft_transfers](https://flipsidecrypto.github.io/bob-models/#!/model/model.fsc_evm.nft__ez_nft_transfers)
 
 ## **Helpful User-Defined Functions (UDFs)**
 
