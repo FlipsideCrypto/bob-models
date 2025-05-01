@@ -23,13 +23,6 @@ jobs:
         run: |
           echo "warehouse=${{ vars.WAREHOUSE }}" >> $GITHUB_OUTPUT
 
-  notify-failure:
-    needs: [prepare_vars]
-    if: failure()
-    uses: FlipsideCrypto/fsc-evm/.github/workflows/slack_notify.yml@main
-    secrets:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
   called_workflow_template:
     needs: prepare_vars
     uses: FlipsideCrypto/analytics-workflow-templates/.github/workflows/dbt.yml@main
@@ -40,7 +33,7 @@ jobs:
       warehouse: ${{ needs.prepare_vars.outputs.warehouse }}
     secrets: inherit
 
-  notify-failure2:
+  notify-failure:
     needs: [called_workflow_template]
     if: failure()
     uses: FlipsideCrypto/fsc-evm/.github/workflows/slack_notify.yml@main
