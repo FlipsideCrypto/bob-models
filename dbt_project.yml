@@ -102,6 +102,20 @@ models:
           +enabled: true
         dex:
           +enabled: true
+        lending:
+          +enabled: false
+          gold:
+            +enabled: true
+            defi__ez_lending_flashloans:
+              +enabled: false
+          silver:
+            +enabled: false
+            protocols:
+              +enabled: true
+            complete_lending:
+              +enabled: true
+              silver_lending__complete_lending_flashloans:
+                +enabled: false
       stats:
         +enabled: true
     scores_package:
