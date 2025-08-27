@@ -103,7 +103,39 @@ models:
         dex:
           +enabled: true
         lending:
-          +enabled: true
+          +enabled: false
+          gold:
+            +enabled: false
+            defi__ez_lending_borrows:
+              +enabled: true
+            defi__ez_lending_deposits:
+              +enabled: true
+            defi__ez_lending_liquidations:
+              +enabled: true
+            defi__ez_lending_repayments:
+              +enabled: true
+            defi__ez_lending_withdraws:
+              +enabled: true
+            defi__ez_lending_flashloans:
+              +enabled: false
+          silver:
+            +enabled: false
+            protocols:
+              +enabled: true
+            complete_lending:
+              +enabled: false
+              silver_lending__complete_lending_borrows:
+                +enabled: true
+              silver_lending__complete_lending_deposits:
+                +enabled: true
+              silver_lending__complete_lending_withdraws:
+                +enabled: true
+              silver_lending__complete_lending_repayments:
+                +enabled: true
+              silver_lending__complete_lending_liquidations:
+                +enabled: true
+              silver_lending__complete_lending_flashloans:
+                +enabled: false
       stats:
         +enabled: true
     scores_package:
