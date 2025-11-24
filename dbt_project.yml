@@ -116,6 +116,8 @@ models:
               +enabled: true
               silver_lending__complete_lending_flashloans:
                 +enabled: false
+        stablecoins:
+          +enabled: true
       stats:
         +enabled: true
       chain_stats:
